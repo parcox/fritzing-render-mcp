@@ -1,0 +1,11 @@
+services:
+  fritzing-render:
+    build: .
+    ports:
+      - "3010:8000"
+    environment:
+      SUPERGATEWAY_API_KEY: ${SUPERGATEWAY_API_KEY}
+    volumes:
+      - /home/bowo/.fritzing-parts:/custom:ro
+      - /home/bowo/.fritzing-render/work:/work
+    restart: unless-stopped
